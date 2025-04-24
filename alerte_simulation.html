@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Alerte de sécurité</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #8B0000;
+            color: white;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+        }
+        #main {
+            max-width: 90%;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 1.5em;
+        }
+        button {
+            background-color: white;
+            color: #8B0000;
+            font-size: 1.2em;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1>🚨 Virus détecté !</h1>
+        <p>Une menace critique a été trouvée sur votre appareil.<br>Cliquez ci-dessous pour sécuriser votre système.</p>
+        <button onclick="showMessage()">Corriger maintenant</button>
+    </div>
+
+    <script>
+        // Vibration au chargement (mobile uniquement)
+        if (navigator.vibrate) {
+            navigator.vibrate([500, 200, 500]);
+        }
+
+        function showMessage() {
+            document.getElementById("main").innerHTML = `
+                <h1>✅ C’était une simulation !</h1>
+                <p>Ce genre de message est souvent utilisé par des sites frauduleux.<br>
+                Ne scannez jamais un QR code inconnu sans précaution.</p>
+            `;
+            if (navigator.vibrate) {
+                navigator.vibrate([200, 100, 200]);
+            }
+        }
+    </script>
+</body>
+</html>
